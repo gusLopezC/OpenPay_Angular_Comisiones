@@ -23,7 +23,7 @@ export class OpenPayControllerService {
 
    cobrarComision(Comision: any){
 
-    const url = 'https://sandbox-api.openpay.mx/v1/'+Comision.MERCHANT_ID+'/fees';
+    const url = 'https://api.openpay.mx/v1/'+Comision.MERCHANT_ID+'/fees';
 
     var Peticion = {
       "customer_id": Comision.customer_id,
