@@ -29,14 +29,14 @@
         <div class="card-body">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-row">
-                    <div class="form-group col-5">
+                    <div class="form-group col-12">
                         <label>Merchand_id</label>
                         <input type="text" formControlName="MERCHANT_ID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.MERCHANT_ID.errors }" />
                         <div *ngIf="submitted && f.MERCHANT_ID.errors" class="invalid-feedback">
                             <div *ngIf="f.MERCHANT_ID.errors.required">MERCHANT_ID is required</div>
                         </div>
                     </div>
-                    <div class="form-group col-5">
+                    <div class="form-group col-12">
                         <label>LLave secreta(sk)</label>
                         <input type="text" formControlName="SECRECT_API_KEY" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SECRECT_API_KEY.errors }" />
                         <div *ngIf="submitted && f.SECRECT_API_KEY.errors" class="invalid-feedback">
@@ -61,8 +61,8 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary mr-1">Register</button>
-                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                    <button class="btn btn-primary mr-1">Cobrar</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
                 </div>
             </form>
         </div>

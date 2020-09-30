@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OpenPayControllerService } from './services/service.index';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-root',
@@ -31,7 +33,6 @@ export class AppComponent {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
-    console.log(this.registerForm.value)
     this.submitted = true;
 
     // stop here if form is invalid
@@ -41,18 +42,18 @@ export class AppComponent {
 
     // display form values on success
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
+    console.log();
     this._serviceOpenpay.cobrarComision(this.registerForm.value)
     .subscribe((resp: any) => {
-      console.log(resp);
-      if (resp > 0) {
-        console.log(resp)
+      
+
+      if (resp.status = "completed") {
+        Swal.fire('Cobro de saldo realizado correctamente');
+        this.registerForm.controls['customer_id'].patchValue('');
+        this.registerForm.controls['monto'].patchValue('');
       } else {
-        console.log(resp)
-
+        Swal.fire('Oops...', 'Hubo un error vuelve a intentar', 'error');
       }
-
     });
 
     }
