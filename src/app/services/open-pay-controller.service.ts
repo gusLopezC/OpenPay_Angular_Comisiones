@@ -24,7 +24,6 @@ export class OpenPayControllerService {
    cobrarComision(Comision: any){
 
     let url  = "";
-    console.log(Comision);
     
     if(Comision.environment == "produccion"){
        url = 'https://api.openpay.mx/v1/'+Comision.MERCHANT_ID+'/fees';
