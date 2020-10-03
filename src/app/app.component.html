@@ -27,6 +27,19 @@
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-row">
                     <div class="form-group col-12">
+                        <label>Modo de ambiente</label>
+                        <br>
+                        <input type="radio" formControlName="environment" value="produccion" [ngClass]="{ 'is-invalid': submitted && f.environment.errors }">
+                        <label for="yes">Producción</label>
+                        <br>
+                        <input type="radio" formControlName="environment" value="sandbox" [ngClass]="{ 'is-invalid': submitted && f.environment.errors }">
+                        <label for="no">Sandbox</label>
+                        <div *ngIf="submitted && f.environment.errors" class="invalid-feedback">
+                            <div *ngIf="f.environment.errors.required">Environment is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
                         <label>Merchand_id</label>
                         <input type="text" formControlName="MERCHANT_ID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.MERCHANT_ID.errors }" />
                         <div *ngIf="submitted && f.MERCHANT_ID.errors" class="invalid-feedback">
@@ -35,6 +48,7 @@
                     </div>
                     <div class="form-group col-12">
                         <label>LLave secreta(sk)</label>
+                        <p style="color: red;">Es necesario convertir la llave a base64 con POSTMAN</p>
                         <input type="text" formControlName="SECRECT_API_KEY" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SECRECT_API_KEY.errors }" />
                         <div *ngIf="submitted && f.SECRECT_API_KEY.errors" class="invalid-feedback">
                             <div *ngIf="f.SECRECT_API_KEY.errors.required">SECRECT_API_KEY is required</div>

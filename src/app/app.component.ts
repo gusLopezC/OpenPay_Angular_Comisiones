@@ -22,6 +22,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
+      environment: ['', Validators.required],
       MERCHANT_ID: ['', Validators.required],
       SECRECT_API_KEY: ['', Validators.required],
       customer_id: ['', Validators.required],
