@@ -39,10 +39,13 @@ export class OpenPayControllerService {
       "description" : "Cobro de comision para " + Comision.customer_id,
     };
 
+    var llave = btoa(Comision.SECRECT_API_KEY+":");
+
+
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     headers = headers.set('Accept', 'application/json');
-    headers = headers.set('Authorization', 'Basic ' + Comision.SECRECT_API_KEY); 
+    headers = headers.set('Authorization', 'Basic ' + llave); 
   
 
   return this.http.post(url, Peticion, { headers }).pipe(
